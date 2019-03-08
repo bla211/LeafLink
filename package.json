@@ -1,17 +1,35 @@
 {
-  "name": "leaflink",
-  "description": "Responsive Code Test",
-  "version": "0.0.1",
-  "authors": [
-    "Wes Hatch <wes.hatch@leaflink.com>"
-  ],
-  "license": "© 2018 Leaflink. All Rights Reserved.",
+  "name": "LeafLink-Interview",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server -o"
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build --baseUrl",
+    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit",
+    "start": "start http://localhost:8080 && npm run dev"
   },
   "dependencies": {
-    "http-server": "^0.11.1"
+    "axios": "^0.18.0",
+    "lodash": "^4.17.10",
+    "npm": "^6.4.1",
+    "vue": "^2.5.16",
+    "vue-axios": "^2.1.2",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0-rc.5",
+    "@vue/cli-plugin-eslint": "^3.0.0-rc.5",
+    "@vue/cli-plugin-unit-jest": "^3.0.0-rc.5",
+    "@vue/cli-service": "^3.0.0-rc.5",
+    "@vue/test-utils": "^1.0.0-beta.20",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.0.1",
+    "concurrently": "^4.1.0",
+    "http-server": "^0.11.1",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "vue-template-compiler": "^2.5.16"
   }
 }
