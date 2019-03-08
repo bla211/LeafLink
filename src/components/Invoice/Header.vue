@@ -37,7 +37,15 @@ export default {
     font-family: $headline-font;
     font-size: 18rem;
     width: 100%;
-    padding: 0 0 20px 0;
+    @include breakpoint(mobile) {
+      padding: 20px;
+    }
+    @include breakpoint(tabletP) {
+      padding: 0 0 20px 0; 
+    }
+    @include breakpoint(desktop) {     
+      padding: 0 0 20px 0;
+    }
   .logo{
     height: 57px;
     img{
@@ -48,7 +56,7 @@ export default {
     @include breakpoint(mobile) {
       display: none;
     }
-    @include breakpoint(desktop) {
+    @include breakpoint(tabletP) {
       display: flex;
     }
   }
@@ -56,7 +64,7 @@ export default {
     @include breakpoint(mobile) {
       display: flex;
     }
-    @include breakpoint(desktop) {
+    @include breakpoint(tabletP) {
       display: none;
     }
   }

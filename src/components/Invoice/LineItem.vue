@@ -1,10 +1,25 @@
 <template>
-  <div class="lineItem">
-    <i class="material-icons" @click="removeLineItem($vnode.key)">cancel</i>
-    <input type="text" v-model="description"/>
-    <input type="text" v-model="unitPrice"/>
-    <input type="text" v-model="quantity"/>
-    <input type="text" :value="total"/>
+  <div class="line-item">
+    <div class="remove-line-item">     
+      <i class="material-icons" @click="removeLineItem($vnode.key)">cancel</i>
+      <button class="big-remove">Remove Line Item</button>
+    </div>
+    <div class="line-item-input-wrapper">
+      <label>Description</label>
+      <input type="text" v-model="description" placeholder="Description"/>
+    </div>
+    <div class="line-item-input-wrapper">
+      <label>Unit Price ($)</label>
+      <input type="text" v-model="unitPrice"/>
+    </div>
+    <div class="line-item-input-wrapper">
+      <label>Quantity (#)</label>
+      <input type="text" v-model="quantity"/>
+    </div>
+    <div class="line-item-input-wrapper">
+      <label>Total</label>
+      <input type="text" :value="total" disabled/>
+    </div>
   </div>
 </template>
 
@@ -64,7 +79,7 @@ export default {
 
 <style scoped lang="scss">
  @import "@/styles/app.scss";
-  .lineItem{
+  .line-item{
     display: flex;
     font-family: $body-font;
     font-size: 18rem;
@@ -73,25 +88,107 @@ export default {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 10px 0;
-    i{
+    @include breakpoint(mobile) {
+      margin: 0 0 20px 0; 
+    }
+    @include breakpoint(tabletP) {
+      margin: 0 0 20px 0;   
+    }
+    @include breakpoint(desktop) {
+      
+    }
+    .remove-line-item{
       @include transition(opacity 0.25s ease-in-out);
-      align-self: flex-end;
-      color: #ed5665;
-      cursor: pointer;
-      opacity: .25;
-      &:hover{
-        opacity: 1;
+      align-self: center;
+      display: flex;
+      @include breakpoint(mobile) {
+        flex-basis: 100%;
+        order: 2;
+        justify-content: flex-start;
+      }
+      @include breakpoint(tabletP) {
+        justify-content: flex-end;
+      }
+      @include breakpoint(desktop) {       
+        flex-basis: 24px;
+        order: 0;
+      }
+      i{
+        color: #ed5665;
+        cursor: pointer;
+        opacity: .25;
+        @include breakpoint(mobile) {
+          display: none;
+        }
+        @include breakpoint(desktop) { 
+          display: block
+        }
+        &:hover{
+          opacity: 1;
+        }
+      }
+      .big-remove{
+        @include transition(opacity 0.25s ease-in-out);
+        background: #ed5665;
+        border: 0;
+        padding: 4px 6px;
+        color: $White-Widow;
+        font-family: $body-font;
+        opacity: .25;
+        cursor: pointer;
+        @include breakpoint(mobile) {
+          display: block;
+        }
+        @include breakpoint(desktop) { 
+          display: none;
+        }
+        &:hover{
+          opacity: 1;
+        }
+      }
+    }
+    .line-item-input-wrapper{
+      font-size: 1.2rem;
+      @include breakpoint(mobile) {
+        width:  100%;  
+      }
+      @include breakpoint(tabletP) {
+        width: calc(50% - 10px);  
+      }
+      @include breakpoint(desktop) {
+        flex: 1;
+        margin: 0 6px;
       }
     }
     input{
-      flex: 1;
-      margin: 0 10px;
-      padding: 10px 16px 4px 0;
+      padding: 10px 16px;
+      background: rgba(27, 20, 67, .1);
       border: 0;
-      border-bottom: 1px solid $Grandaddy-Purp;
       font-family: $body-font;
       font-size: 1.6rem;
+      width: 100%;
+
+      @include breakpoint(mobile) {
+        margin: 2px 0 6px;    
+      }
+      @include breakpoint(tabletP) {
+        margin: 2px 0 6px;  
+      }
+      @include breakpoint(desktop) {
+        margin: 10px 0;
+      }
+    }
+    label{
+      width: 100%;
+      @include breakpoint(mobile) {
+        margin: 10px 0;   
+      }
+      @include breakpoint(tabletP) {
+        margin: 10px 0;  
+      }
+      @include breakpoint(desktop) {
+        display: none;
+      }
     }
  }
 

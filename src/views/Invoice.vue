@@ -2,8 +2,8 @@
   <div id="invoice">
       <div id="invoice-header">
         <span>Description</span>
-        <span>Unit Price</span>
-        <span>Quantity</span>
+        <span>Unit Price ($)</span>
+        <span>Quantity (#)</span>
         <span>Total</span>
       </div>
       <LineItem v-for="(lineItem, lineItemIndex) in store.lineItems" :key="lineItemIndex"/>
@@ -73,8 +73,9 @@ export default {
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 60px 20px;
+    padding: 20px;
     background: $White-Widow;
+    
     #invoice-header{
       display: flex;
       font-family: $body-font;
@@ -85,6 +86,17 @@ export default {
       justify-content: space-between;
       flex-wrap: wrap;
       padding: 10px 0 10px 24px;
+
+      @include breakpoint(mobile) {
+        display: none;
+      }
+      @include breakpoint(tabletP) {
+        display: none;
+      }
+      @include breakpoint(desktop) {
+        display: flex;
+      }
+
       i{
         @include transition(opacity 0.25s ease-in-out);
         align-self: flex-end;
@@ -97,7 +109,7 @@ export default {
       }
       span{
         flex: 1;
-        margin: 0 10px;
+        margin: 0 6px;
         padding: 10px 16px 4px 0;
         font-family: $body-font;
         font-size: 1.6rem;
@@ -117,35 +129,77 @@ export default {
         color: $White-Widow;
         border: 0;
         cursor: pointer;
-        margin: 14px 0;
+        margin: 14px 34px;
+
+        @include breakpoint(mobile) {
+          margin: 0 0 60px;
+        }
+        @include breakpoint(tabletP) {
+          margin: 0 0 60px;
+        }
+        @include breakpoint(desktop) {
+          margin: 14px 34px;
+        }
         &:hover{
           opacity: .5;
         }
       }
     }
     #total-bar{
-      position: fixed;
-      bottom:0;
-      left:0;
       display: flex;
       flex-wrap: wrap;
-      padding: 20px 40px;
       background: $Green-Crack;
       width: 100%;
       color: $White-Widow;
       font-family: $body-font;
-      justify-content: center;
+
+      @include breakpoint(mobile) {
+        padding: 20px;
+      }
+      @include breakpoint(tabletP) {
+
+      }
+      @include breakpoint(desktop) {
+        position: fixed;
+        bottom:0;
+        left:0;
+        padding: 20px 40px;     
+        justify-content: center;
+      }
+
       .total-bar__field{     
         font-size: 2.4rem;
         margin: 0 16px;
         display: flex;
-        align-content: flex-end;
+
+        @include breakpoint(mobile) {
+          width: 100%;
+          align-self: flex-end;
+          justify-content: flex-end;
+          margin: 0 0 10px 0;
+        }
+        @include breakpoint(tabletP) {
+          margin: 0 0 10px 0;
+        }
+        @include breakpoint(desktop){ 
+          flex: 1;
+          margin: 0;
+        }
         label{
           display: flex;
-          align-self: center;
+          @include breakpoint(mobile) {
+            justify-content: flex-start;
+            flex: 1;
+          }
+          @include breakpoint(tabletP) {
+          }
+          @include breakpoint(desktop){
+            align-self: center;
+            justify-content: flex-end;
+            margin-right: 10px;   
+          }
         }
         input{
-          flex: 1;
           padding: 10px 16px;
           border: 0;
           font-family: $body-font;
@@ -153,8 +207,20 @@ export default {
           margin: 0 0 0 10px;
           background: rgba(255, 255, 255, .25);
           color: $White-Widow;
-          width: 120px;
           font-size: 2.4rem;
+          text-align: right;
+
+          @include breakpoint(mobile) {
+            width: 150px;
+          }
+          @include breakpoint(tabletP) {
+            margin: 0 0 10px 0;
+          }
+          @include breakpoint(desktop){ 
+            flex: 1;
+            align-self: auto;
+            margin: 0;
+          }
         }
       }
       #total{
@@ -162,9 +228,21 @@ export default {
         font-weight: 900;
         text-transform: uppercase;
         margin: 0 0 0 16px;
-
         display: flex;
-        align-self: center;
+        
+        @include breakpoint(mobile) {
+          width: 100%;
+          text-align: right;
+          justify-content: flex-end;
+          padding: 0 16px;
+        }
+        @include breakpoint(tabletP) {
+        }
+        @include breakpoint(desktop){  
+          align-self: center;
+          justify-content: flex-end;
+
+        }
       }
     }
   }

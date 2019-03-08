@@ -36,6 +36,13 @@ export default {
   #app{
     display: flex;
     flex-direction: column;
-    padding: 40px;
+    @include breakpoint(mobile) {
+    }
+    @include breakpoint(tabletP) {
+      padding: 20px;  
+    }
+    @include breakpoint(desktop) {
+      padding: 20px 40px; 
+    }
   }
 </style>
