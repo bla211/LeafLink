@@ -1,4 +1,4 @@
-# LeafLink Interview App
+# LeafLink Invoice App
 
 ## Project setup
 ```
