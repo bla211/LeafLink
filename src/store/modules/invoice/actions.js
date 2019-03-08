@@ -11,6 +11,9 @@ export default{
         }
         context.commit('UPDATE_LINE_ITEMS', emptyLineItem);
     },
+    handleRemoveLineItem: (context, payload) => {
+        context.commit('REMOVE_LINE_ITEM', payload);
+    },
     handleLineItemDescription: (context, payload) => {
         context.commit('UPDATE_LINE_ITEM_DESCRIPTION', payload);
     },

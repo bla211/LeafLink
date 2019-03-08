@@ -1,5 +1,6 @@
 <template>
   <div class="lineItem">
+    <i class="material-icons" @click="handleRemoveLineItem($vnode.key)">cancel</i>
     <input type="text" v-model="description"/>
     <input type="text" v-model="unitPrice"/>
     <input type="text" v-model="quantity"/>
@@ -55,7 +56,7 @@ export default {
   },
   methods: {
     ...mapActions(
-      'module', ["handleLineItemDescription", "handleLineItemUnitPrice", "handleLineItemQuantity"]
+      'module', ["handleLineItemDescription", "handleLineItemUnitPrice", "handleLineItemQuantity", 'handleRemoveLineItem']
     ),
   }
 }
@@ -65,17 +66,25 @@ export default {
  @import "@/styles/app.scss";
   .lineItem{
     display: flex;
-    font-family: $headline-font;
+    font-family: $body-font;
     font-size: 18rem;
     width: 100%;
     max-width: 1100px;
     flex-direction: row;
     justify-content: space-between;
-    align-content: flex-start;
     padding: 10px 0;
+    i{
+      align-self: center;
+      color: #ed5665;
+    }
     input{
       flex: 1;
-      margin: 0 4px;
+      margin: 0 10px;
+      padding: 10px 16px 4px;
+      border: 0;
+      border-bottom: 1px solid $Grandaddy-Purp;
+      font-family: $body-font;
+      font-size: 1.6rem;
     }
  }
 
