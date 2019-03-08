@@ -157,7 +157,11 @@ export default {
         padding: 20px;
       }
       @include breakpoint(tabletP) {
-
+        position: fixed;
+        bottom:0;
+        left:0;
+        padding: 20px 40px;     
+        justify-content: center;
       }
       @include breakpoint(desktop) {
         position: fixed;

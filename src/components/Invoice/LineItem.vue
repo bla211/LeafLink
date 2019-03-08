@@ -2,7 +2,7 @@
   <div class="line-item">
     <div class="remove-line-item">     
       <i class="material-icons" @click="removeLineItem($vnode.key)">cancel</i>
-      <button class="big-remove">Remove Line Item</button>
+      <button class="big-remove" @click="removeLineItem($vnode.key)">Remove Line Item</button>
     </div>
     <div class="line-item-input-wrapper">
       <label>Description</label>

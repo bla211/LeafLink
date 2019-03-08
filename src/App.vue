@@ -39,10 +39,10 @@ export default {
     @include breakpoint(mobile) {
     }
     @include breakpoint(tabletP) {
-      padding: 20px;  
+      padding: 20px 20px 300px;  
     }
     @include breakpoint(desktop) {
-      padding: 20px 40px; 
+      padding: 20px 40px 300px; 
     }
   }
 </style>
