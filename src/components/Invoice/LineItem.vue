@@ -1,3 +1,4 @@
+<!--$vnode.key is the index of item in store.lineItems-->
 <template>
   <div class="line-item">
     <div class="remove-line-item">     

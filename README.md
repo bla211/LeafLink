@@ -30,6 +30,5 @@ npm run test:unit
 
 #### Next steps
 ```
-
 1) Break down ui into shared components (buttons, inputs, etc)
 2) Write tests for ui components (see tests/unit/Button.spec.js for sample button test)

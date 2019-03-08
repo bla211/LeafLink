@@ -20,6 +20,7 @@ export default {
     },
   },
   mounted(){
+    //initializes an empty line item when app is mounted
     this.addLineItem();
   },
   methods: {
