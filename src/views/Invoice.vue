@@ -168,7 +168,7 @@ export default {
       }
 
       .total-bar__field{     
-        font-size: 2.4rem;
+        font-size: 1.8rem;
         margin: 0 16px;
         display: flex;
 
@@ -182,7 +182,6 @@ export default {
           margin: 0 0 10px 0;
         }
         @include breakpoint(desktop){ 
-          flex: 1;
           margin: 0 10px;
           justify-content: center;
         }
@@ -190,6 +189,7 @@ export default {
           display: flex;
           @include breakpoint(mobile) {
             justify-content: flex-start;
+            align-self: center;
             flex: 1;
           }
           @include breakpoint(tabletP) {
@@ -197,7 +197,7 @@ export default {
           @include breakpoint(desktop){
             align-self: center;
             justify-content: flex-end;
-            margin-right: 10px;   
+            margin-right: 10px; 
           }
         }
         input{
@@ -208,7 +208,6 @@ export default {
           margin: 0 0 0 10px;
           background: rgba(255, 255, 255, .25);
           color: $White-Widow;
-          font-size: 2.4rem;
           text-align: right;
 
           @include breakpoint(mobile) {
@@ -218,10 +217,7 @@ export default {
             margin: 0 0 10px 0;
           }
           @include breakpoint(desktop){ 
-            flex: 1;
-            align-self: auto;
-            margin: 0;
-            width: auto;
+            
           }
         }
       }
@@ -229,7 +225,7 @@ export default {
         font-size: 2.4rem;
         font-weight: 900;
         text-transform: uppercase;
-        margin: 0 0 0 16px;
+        margin: 0;
         display: flex;
         
         @include breakpoint(mobile) {
@@ -242,8 +238,8 @@ export default {
         }
         @include breakpoint(desktop){  
           align-self: center;
-          width: auto;
           justify-content: flex-end;
+          justify-self: flex-end;
 
         }
       }
