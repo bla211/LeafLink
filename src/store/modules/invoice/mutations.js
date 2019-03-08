@@ -16,5 +16,11 @@ export default{
     },
     UPDATE_LINE_ITEM_TOTAL: (state, {index, value}) => {
         state.lineItems[index].Total = value;
+    },
+    UPDATE_INVOICE_SUBTOTAL: (state, payload) => {
+        state.subTotal = payload;
+    },
+    UPDATE_INVOICE_TOTAL: (state, payload) => {
+        state.total = payload;
     }
 }

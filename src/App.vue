@@ -20,11 +20,11 @@ export default {
     },
   },
   mounted(){
-    this.handleAddLineItem();
+    this.addLineItem();
   },
   methods: {
     ...mapActions(
-      'module', ['handleAddLineItem']
+      'module', ['addLineItem']
     ),
   }
 }

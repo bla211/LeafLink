@@ -1,6 +1,6 @@
 <template>
   <div class="lineItem">
-    <i class="material-icons" @click="handleRemoveLineItem($vnode.key)">cancel</i>
+    <i class="material-icons" @click="removeLineItem($vnode.key)">cancel</i>
     <input type="text" v-model="description"/>
     <input type="text" v-model="unitPrice"/>
     <input type="text" v-model="quantity"/>
@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     ...mapActions(
-      'module', ["handleLineItemDescription", "handleLineItemUnitPrice", "handleLineItemQuantity", 'handleRemoveLineItem']
+      'module', ["handleLineItemDescription", "handleLineItemUnitPrice", "handleLineItemQuantity", 'removeLineItem']
     ),
   }
 }
@@ -72,15 +72,22 @@ export default {
     max-width: 1100px;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding: 10px 0;
     i{
-      align-self: center;
+      @include transition(opacity 0.25s ease-in-out);
+      align-self: flex-end;
       color: #ed5665;
+      cursor: pointer;
+      opacity: .25;
+      &:hover{
+        opacity: 1;
+      }
     }
     input{
       flex: 1;
       margin: 0 10px;
-      padding: 10px 16px 4px;
+      padding: 10px 16px 4px 0;
       border: 0;
       border-bottom: 1px solid $Grandaddy-Purp;
       font-family: $body-font;
