@@ -1,9 +1,9 @@
 <template>
   <div class="lineItem">
-    <input type="text"/>
-    <input type="text"/>
-    <input type="text"/>
-    <input type="text"/>
+    <input type="text" v-model="description"/>
+    <input type="text" v-model="unitPrice"/>
+    <input type="text" v-model="quantity"/>
+    <input type="text" :value="total"/>
   </div>
 </template>
 
@@ -11,6 +11,9 @@
 import { mapActions } from 'vuex';
 
 export default {
+  props: {
+    data: Object
+  },
   components: {
   },
   created(){
@@ -18,11 +21,41 @@ export default {
   computed: {
     store(){
       return this.$store.state.store.state;
+    },
+    description: {
+      get(){
+        return this.store.lineItems[this.$vnode.key].Description;
+      },
+      set(value){
+        this.handleLineItemDescription({index: this.$vnode.key, value: value});
+      }
+    },
+    unitPrice: {
+      get(){
+        return this.store.lineItems[this.$vnode.key].UnitPrice;
+      },
+      set(value){
+        this.handleLineItemUnitPrice({index: this.$vnode.key, value: value});
+      }
+    },
+    quantity: {
+      get(){
+        return this.store.lineItems[this.$vnode.key].Quantity;
+      },
+      set(value){
+        this.handleLineItemQuantity({index: this.$vnode.key, value: value});
+      }
+    },
+    total: {
+      get(){       
+        return '$' + this.store.lineItems[this.$vnode.key].Total;
+      }
     }
+
   },
   methods: {
     ...mapActions(
-      'module', []
+      'module', ["handleLineItemDescription", "handleLineItemUnitPrice", "handleLineItemQuantity"]
     ),
   }
 }

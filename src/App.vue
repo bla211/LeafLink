@@ -20,14 +20,7 @@ export default {
     },
   },
   mounted(){
-    const emptyLineItem = {
-      ID: null,
-      Description: '',
-      UnitPrice: 0,
-      Quantity: 0,
-      Amount: 0
-    }
-    this.handleAddLineItem(emptyLineItem);
+    this.handleAddLineItem();
   },
   methods: {
     ...mapActions(
