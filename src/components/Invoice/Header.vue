@@ -1,10 +1,10 @@
 <template>
   <div id="header">
     <div class="logo" id="large-logo">
-      <img src="../../assets/leaflink.svg">
+      <img src="../../assets/leaflink.svg" alt="LeafLink logo">
     </div>
     <div class="logo" id="small-logo">
-      <img src="../../assets/ll.svg">
+      <img src="../../assets/ll.svg" alt="LeafLink logo">
     </div>
   </div>
 </template>

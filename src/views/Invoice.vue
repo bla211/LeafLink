@@ -13,16 +13,16 @@
 
       <div id="total-bar">   
         <div class="total-bar__field">
-          <label>Subtotal</label>
-          <input type="text" :value="store.subTotal" disabled/>
+          <label >Subtotal</label>
+          <input type="text" :value="store.subTotal" aria-label="Subtotal" disabled/>
         </div> 
         <div class="total-bar__field">
-          <label>Tax</label>
-          <input type="text" :value="store.tax" disabled/>
+          <label for="tax">Tax</label>
+          <input type="text" :value="store.tax" aria-label="Tax" disabled/>
         </div> 
         <div class="total-bar__field">
           <label>Deductions</label>
-          <input type="text" v-model="deductions"/>
+          <input type="text" v-model="deductions" aria-label="Deductions" />
         </div> 
         <div class="total-bar__field" id="total">
           Total: ${{ store.total }}

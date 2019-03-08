@@ -6,19 +6,19 @@
     </div>
     <div class="line-item-input-wrapper">
       <label>Description</label>
-      <input type="text" v-model="description" placeholder="Description"/>
+      <input type="text" v-model="description" placeholder="Description" aria-label="Description" />
     </div>
     <div class="line-item-input-wrapper">
       <label>Unit Price ($)</label>
-      <input type="text" v-model="unitPrice"/>
+      <input type="text" v-model="unitPrice" aria-label="Unit Price" />
     </div>
     <div class="line-item-input-wrapper">
       <label>Quantity (#)</label>
-      <input type="text" v-model="quantity"/>
+      <input type="text" v-model="quantity" aria-label="Quantity" />
     </div>
     <div class="line-item-input-wrapper">
       <label>Total</label>
-      <input type="text" :value="total" disabled/>
+      <input type="text" :value="total" aria-label="Total" disabled/>
     </div>
   </div>
 </template>
@@ -27,11 +27,6 @@
 import { mapActions } from 'vuex';
 
 export default {
-  props: {
-    data: Object
-  },
-  components: {
-  },
   created(){
   },
   computed: {
