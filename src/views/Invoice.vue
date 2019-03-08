@@ -183,7 +183,8 @@ export default {
         }
         @include breakpoint(desktop){ 
           flex: 1;
-          margin: 0;
+          margin: 0 10px;
+          justify-content: center;
         }
         label{
           display: flex;
@@ -220,6 +221,7 @@ export default {
             flex: 1;
             align-self: auto;
             margin: 0;
+            width: auto;
           }
         }
       }
@@ -240,6 +242,7 @@ export default {
         }
         @include breakpoint(desktop){  
           align-self: center;
+          width: auto;
           justify-content: flex-end;
 
         }
