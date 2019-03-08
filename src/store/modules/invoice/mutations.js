@@ -20,6 +20,12 @@ export default{
     UPDATE_INVOICE_SUBTOTAL: (state, payload) => {
         state.subTotal = payload;
     },
+    UPDATE_INVOICE_TAX: (state, payload) => {
+        state.tax = payload;
+    },
+    UPDATE_INVOICE_DEDUCTIONS: (state, payload) => {
+        state.deductions = payload;
+    },
     UPDATE_INVOICE_TOTAL: (state, payload) => {
         state.total = payload;
     }

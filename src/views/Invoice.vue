@@ -18,11 +18,11 @@
         </div> 
         <div class="total-bar__field">
           <label>Tax</label>
-          <input type="text" :value="store.tax"/>
+          <input type="text" :value="store.tax" disabled/>
         </div> 
         <div class="total-bar__field">
           <label>Deductions</label>
-          <input type="text" :value="store.deductions"/>
+          <input type="text" v-model="deductions"/>
         </div> 
         <div class="total-bar__field" id="total">
           Total: ${{ store.total }}
@@ -45,11 +45,19 @@ export default {
   computed: {
     store(){
       return this.$store.state.store.state;
-    }
+    },
+    deductions: {
+      get(){
+        return this.store.deductions;
+      },
+      set(value){
+        this.handleInvoiceDeductions(value);
+      }
+    },
   },
   methods: {
     ...mapActions(
-      'module', ['addLineItem']
+      'module', ['addLineItem', 'handleInvoiceDeductions']
     ),
   }
 }
@@ -120,6 +128,7 @@ export default {
       bottom:0;
       left:0;
       display: flex;
+      flex-wrap: wrap;
       padding: 20px 40px;
       background: $Green-Crack;
       width: 100%;

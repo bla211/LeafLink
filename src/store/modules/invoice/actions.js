@@ -37,22 +37,40 @@ export default{
     },
     calculateInvoiceTotalBar: (context) => {
         context.dispatch('calculateSubTotal');
+        context.dispatch('calculateTax');
         context.dispatch('calculateTotal');
     },
     calculateSubTotal: (context) => {
-        let state = context.state;
-        let total = state.lineItems.reduce((tot, lineItem) => {
+        const state = context.state;
+        const total = state.lineItems.reduce((tot, lineItem) => {
             return tot + parseFloat(lineItem.Total);
         }, 0);
         
         context.commit('UPDATE_INVOICE_SUBTOTAL', parseFloat(total).toFixed(2));
     },
+    calculateTax: (context) => {
+        const state = context.state;
+        const subTotal = parseFloat(state.subTotal);
+        const taxPercentage = state.taxPercentage;
+        const tax = subTotal * taxPercentage;
+
+        context.commit('UPDATE_INVOICE_TAX', parseFloat(tax).toFixed(2));
+    },
+    handleInvoiceDeductions: (context, payload) => {
+        context.commit('UPDATE_INVOICE_DEDUCTIONS', payload);
+        context.dispatch('calculateInvoiceTotalBar');
+    },
     calculateTotal: (context) => {
         const state = context.state;
         const subTotal = parseFloat(state.subTotal);
         const tax = parseFloat(state.tax);
-        const deductions = parseFloat(state.deductions);
-
+        let deductions;
+        if(isNaN(state.deductions) || !state.deductions.length){         
+            deductions = 0;
+        }
+        else{           
+            deductions = parseFloat(state.deductions);
+        }
         const total = subTotal + tax - deductions;
         context.commit('UPDATE_INVOICE_TOTAL', parseFloat(total).toFixed(2));
     }
